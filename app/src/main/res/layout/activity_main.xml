@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/topLayout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity">
+
+	<TextView
+		android:id="@+id/textView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/touch_student_id"
+		android:textSize="24sp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<ScrollView
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/status_text"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="#4CAF50"
+				android:textSize="24sp" />
+
+			<View
+				android:id="@+id/divider"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="?android:attr/listDivider" />
+
+			<TextView
+				android:id="@+id/student_no_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/student_no"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/student_no"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/faculty_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/faculty"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/faculty"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/department_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/department"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/department"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<View
+				android:id="@+id/divider5"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="?android:attr/listDivider" />
+
+			<TextView
+				android:id="@+id/name_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/full_name"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/furigana_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/furigana"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/furigana"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/romaji_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/romaji"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/romaji"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/birthday_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/birthday"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/birthday"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<View
+				android:id="@+id/divider2"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="?android:attr/listDivider" />
+
+			<TextView
+				android:id="@+id/enter_date_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/enter_date"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/enter_date"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/exp_date_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/exp_date"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/exp_date"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<View
+				android:id="@+id/divider3"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="?android:attr/listDivider" />
+
+			<TextView
+				android:id="@+id/issue_date_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/issue_date"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/issue_date"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/issue_place_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/issue_place"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/issue_place"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/issue_count_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/issue_count"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/issue_count"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<View
+				android:id="@+id/divider4"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="?android:attr/listDivider" />
+
+			<TextView
+				android:id="@+id/ksmart_balance_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/ksmart_balance"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/ksmart_balance"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<View
+				android:id="@+id/divider6"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="?android:attr/listDivider" />
+
+			<TextView
+				android:id="@+id/idm_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/idm"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/idm"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/ckv_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/ck_version"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/ckv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/issuever_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/issue_format_version"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/issuever"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/dataver_label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/data_format_version"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/dataver"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="?attr/editTextColor"
+				android:textSize="24sp" />
+
+		</LinearLayout>
+	</ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

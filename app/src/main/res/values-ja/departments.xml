@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="faculty_intlcomm">国際コミュニケーション</string>
+	<string name="department_intlculture">国際文化</string>
+	<string name="department_french">フランス語</string>
+	<string name="department_intlhistlitera">国際歴史文学</string>
+
+	<string name="faculty_law">法</string>
+	<string name="department_frenchlaw">フランス法</string>
+
+	<string name="faculty_science">理</string>
+	<string name="department_electromecha">電子機械</string>
+	<string name="department_frenchbiology">フランス生物</string>
+	<string name="department_eurmolecbiology">欧州分子生物</string>
+
+	<string name="faculty_intltourism">国際観光</string>
+	<string name="department_sfrancetourism">南仏観光</string>
+	<string name="department_oceaniatourism">オセアニア観光</string>
+	<string name="department_gsid">グローバルシステムイマジネーションデザイン</string>
+	<string name="department_tourismmgnt">観光経営</string>
+	<string name="department_alpsmttourism">アルプス山岳観光</string>
+	<string name="department_samericahist">南米史</string>
+	<string name="department_portugaltourism">ポルトガル観光</string>
+	<string name="department_japantourism">日本観光</string>
+	<string name="department_tourismgeo">観光地理</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">国信大学生証リーダー</string>
+	<string name="touch_student_id">国際信州学院大学のIC学生証をかざしてください</string>
+	<string name="cancel">キャンセル</string>
+	<string name="not_support_nfc">NFCに対応していません</string>
+	<string name="nfc_disabled">NFC無効</string>
+	<string name="please_enable_nfc">NFCを有効にしてください</string>
+	<string name="setting">設定</string>
+	<string name="this_is_not_sui_id_card">このICカードは国際信州学院大学の学生証ではありません</string>
+	<string name="tag_disconnected">ICカードとの通信が切断されました</string>
+	<string name="overflow_omitted">氏名、フリガナ、ローマ字の規定文字数から溢れた文字は省略されています。</string>
+	<string name="student_no">学籍番号</string>
+	<string name="enter_date">入学日</string>
+	<string name="exp_date">有効期限</string>
+	<string name="issue_date">発行日</string>
+	<string name="issue_place">発行場所</string>
+	<string name="issue_count">発行回数</string>
+	<string name="full_name">氏名</string>
+	<string name="furigana">フリガナ</string>
+	<string name="romaji">ローマ字</string>
+	<string name="birthday">生年月日</string>
+	<string name="ksmart_balance">国信マートプリペイド残高</string>
+	<string name="read_done">読み取り完了</string>
+	<string name="value_yen">%d 円</string>
+	<string name="department">学科</string>
+	<string name="faculty">学部</string>
+	<string name="ck_version">カード鍵バージョン</string>
+	<string name="data_format_version">学生証データ記録形式バージョン</string>
+	<string name="issue_format_version">学生証FeliCa発行形式バージョン</string>
+	<string name="idm">IDm (FeliCaカードのID)</string>
+	<string name="not_supported_format_ver">この学生証はサポートしていないバージョンの形式で記録されています。</string>
+</resources>

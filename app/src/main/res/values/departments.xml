@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="faculty_intlcomm">International Communication</string>
+	<string name="department_intlculture">International Culture</string>
+	<string name="department_french">French Language</string>
+	<string name="department_intlhistlitera">International Historical Luterature</string>
+
+	<string name="faculty_law">Law</string>
+	<string name="department_frenchlaw">French Law</string>
+
+	<string name="faculty_science">Science</string>
+	<string name="department_electromecha">Electronic and Mechanical Engineering</string>
+	<string name="department_frenchbiology">French Biology</string>
+	<string name="department_eurmolecbiology">European Molecular Biology</string>
+
+	<string name="faculty_intltourism">International Tourism</string>
+	<string name="department_sfrancetourism">South France Tourism</string>
+	<string name="department_oceaniatourism">Oceania Tourism</string>
+	<string name="department_gsid">Global System Imagination Design</string>
+	<string name="department_tourismmgnt">Tourism Management</string>
+	<string name="department_alpsmttourism">Alps Mountains Tourism</string>
+	<string name="department_samericahist">South American History</string>
+	<string name="department_portugaltourism">Portugal Tourism</string>
+	<string name="department_japantourism">Japan Tourism</string>
+	<string name="department_tourismgeo">Tourism Geography</string>
+</resources>

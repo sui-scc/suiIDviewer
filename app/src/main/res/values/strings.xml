@@ -1,0 +1,32 @@
+<resources>
+	<string name="app_name">SUI student ID reader</string>
+    <string name="touch_student_id">Please touch SUI (Shinshu University of International) student ID card.</string>
+    <string name="cancel">Cancel</string>
+    <string name="not_support_nfc">NFC not supported</string>
+    <string name="nfc_disabled">NFC disabled</string>
+    <string name="please_enable_nfc">Please enable NFC.</string>
+    <string name="setting">Setting</string>
+    <string name="this_is_not_sui_id_card">This card is not SUI student ID card.</string>
+    <string name="tag_disconnected">IC card is disconnected.</string>
+    <string name="overflow_omitted">Limit over characters in name, furigana or romaji was omitted.</string>
+    <string name="student_no">Student number</string>
+    <string name="enter_date">Enrollment date</string>
+    <string name="exp_date">Expiration date</string>
+    <string name="issue_date">Date of issue</string>
+    <string name="issue_place">Place of issue</string>
+    <string name="issue_count">Issue count</string>
+    <string name="full_name">Full name</string>
+    <string name="furigana">Furigana</string>
+    <string name="romaji">Name in latin alphabet</string>
+    <string name="birthday">Birthday</string>
+    <string name="ksmart_balance">KS mart prepaid balance</string>
+    <string name="read_done">Reading done</string>
+    <string name="value_yen">%d Yen</string>
+    <string name="faculty">faculty</string>
+    <string name="department">department</string>
+    <string name="idm">IDm (FeliCa card ID)</string>
+    <string name="ck_version">Card key version</string>
+    <string name="data_format_version">Student ID data format version</string>
+    <string name="issue_format_version">Student ID FeliCa issue format version</string>
+    <string name="not_supported_format_ver">This student ID card is recorded by unsupported format version.</string>
+</resources>
