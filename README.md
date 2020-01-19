@@ -1,16 +1,16 @@
 # 国信大学生証リーダー
 
-NFC 対応 Android 端末で国際信州学院大学の IC 学生証の記録内容を読み取るアプリです。
-
-端末に学生証をかざすと内容が表示されます。
-![学生証リーダー画面](https://scc.kokushin-u.jp/static/app/suiidreader-ss.png)
-
-kotlin で実装しています。
+NFC 対応 Android 端末で国際信州学院大学の IC 学生証の記録内容を読み取るアプリです。kotlin で実装しています。
 
 ## インストール
 
-APK をインストールしてください。
+こちらの APK をインストールしてください。
 [suiIDreader-v1.apk](https://scc.kokushin-u.jp/static/app/suiIDreader-v1.apk)
+
+## 使い方
+
+端末に学生証をかざすと内容が表示されます。
+![学生証リーダー画面](https://scc.kokushin-u.jp/static/app/suiidreader-ss.png)
 
 ## データ記録フォーマット
 
