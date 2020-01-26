@@ -88,12 +88,16 @@ class MainActivity : AppCompatActivity() {
             }
             if(resdata.name!=null){
                 findViewById<TextView>(R.id.name).text = resdata.name
+                findViewById<TextView>(R.id.name_label).text = getString(R.string.full_name)+(if(resdata.isNameCut==true)getString(R.string.character_limit_cutted) else "")
             }
             if(resdata.furigana!=null){
                 findViewById<TextView>(R.id.furigana).text = resdata.furigana
+                findViewById<TextView>(R.id.furigana_label).text = getString(R.string.furigana)+(if(resdata.isFuriganaCut==true)getString(R.string.character_limit_cutted) else "")
             }
             if(resdata.romaji!=null){
                 findViewById<TextView>(R.id.romaji).text = resdata.romaji
+                findViewById<TextView>(R.id.romaji_label).text = getString(R.string.romaji)+(if(resdata.isRomajiCut==true)getString(R.string.character_limit_cutted) else "")
+
             }
             if(resdata.birthday!=null){
                 findViewById<TextView>(R.id.birthday).text = DateUtils.formatDateTime(this,resdata.birthday.time,DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_ABBREV_ALL)
@@ -108,7 +112,7 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.issue_date).text = DateUtils.formatDateTime(this,resdata.issuedate.time,DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_ABBREV_ALL)
             }
             if(resdata.issueplace!=null){
-                findViewById<TextView>(R.id.issue_place).text = resdata.issueplace
+                findViewById<TextView>(R.id.issue_place).text = getIssuePlace(resdata.issueplace)
             }
             if(resdata.issuecount!=null){
                 findViewById<TextView>(R.id.issue_count).text = resdata.issuecount.toString()
@@ -168,5 +172,14 @@ class MainActivity : AppCompatActivity() {
 
         }
         return listOf(facultyStr,departmentStr)
+    }
+    private fun getIssuePlace(placecode: String):String{
+        var placeText = placecode
+        if(placecode=="OFI")placeText=getString(R.string.place_OFI)
+        else if(placecode=="SCC")placeText=getString(R.string.place_SCC)
+        else if(placecode=="MAL")placeText=getString(R.string.place_MAL)
+        else if(placecode=="C97")placeText=getString(R.string.place_C97)
+        else if(placecode=="C98")placeText=getString(R.string.place_C98)
+        return  placeText
     }
 }

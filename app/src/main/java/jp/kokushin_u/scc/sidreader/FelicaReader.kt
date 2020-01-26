@@ -33,7 +33,7 @@ class FelicaReader {
 	val STATE=0x92
 	val CRC_CHECK=0xa0
 	data class readResult(val status:String,val data:studentIDdata?)
-	data class studentIDdata(val idm:String,val issueVersion:Int,val dataFormatVersion:Int?,val studentNo: String?, val name:String?,val furigana:String?,val romaji:String?,val birthday:Date?,val enterdate:Date?,val expdate:Date?,val issuedate:Date?,val issueplace:String?,val issuecount: Int?,val prepaidbalance: Int?, val ckv:Int?)
+	data class studentIDdata(val idm:String,val issueVersion:Int,val dataFormatVersion:Int?,val studentNo: String?, val name:String?,val isNameCut:Boolean?, val isNameJA:Boolean?,val furigana:String?,val isFuriganaCut:Boolean?,val romaji:String?,val isRomajiCut:Boolean?,val birthday:Date?,val enterdate:Date?,val expdate:Date?,val issuedate:Date?,val issueplace:String?,val issuecount: Int?,val prepaidbalance: Int?, val ckv:Int?)
 	val ERR_NOT_SUI_ID = "NOT_SUI_ID"
 	val ERR_TAG_DISCONNECT = "TAG_DISCONNECT"
 	val ERR_NOT_SUPPORTED_VERSION = "NOT_SUPPORTED_VER"
@@ -92,7 +92,7 @@ class FelicaReader {
 		// spad0
 		val spad0 = readNfcLiteBlock(nfc,idm,0)
 		val dataformatversion = LEbytes2int(spad0.copyOfRange(14,16))
-		if(dataformatversion!=0){
+		if(dataformatversion!=0&&dataformatversion!=1){
 			return readResult(ERR_NOT_SUPPORTED_VERSION,null)
 		}
 		val studentNum = spad0.copyOfRange(0,14).toString(Charsets.US_ASCII).trim()
@@ -106,6 +106,7 @@ class FelicaReader {
 		//spad5
 		val spad5 = readNfcLiteBlock(nfc,idm,5)
 		val birthday = bcd2date(spad5.copyOfRange(0,4))
+		// overflow
 		val overflowbytes = spad5.copyOfRange(4,16)
 		val zeroindices = mutableListOf<Int>()
 		for ((i,b) in overflowbytes.withIndex()){
@@ -116,21 +117,26 @@ class FelicaReader {
 		var nameOverflow = ByteArray(0)
 		var furiganaOverflow = ByteArray(0)
 		var romajiOverflow = ByteArray(0)
-		// 学生証フォーマットの欠陥により溢れ分の読み込みは氏名部にヌルバイトが無くて溢れ分バイトの末尾２バイトがヌルバイトの場合のみ
+		var isNameCut = false
+		var isFuriganaCut = false
+		var isRomajiCut = false
+		var isNameJA = true
+		if(dataformatversion==0) {
+			// 学生証フォーマットの欠陥により溢れ分の読み込みは氏名部にヌルバイトが無くて溢れ分バイトの末尾２バイトがヌルバイトの場合のみ
 
-		if (toHex(overflowbytes.copyOfRange(10,12))=="0000"&&zeroindices.size>=4){
-			val should0bytes = overflowbytes.copyOfRange(zeroindices[2],12)
-			if (should0bytes.all { byte -> byte.toInt()==0 }){
-				nameOverflow = overflowbytes.copyOfRange(0,zeroindices[0])
-				furiganaOverflow = overflowbytes.copyOfRange(zeroindices[0],zeroindices[1])
-				romajiOverflow = overflowbytes.copyOfRange(zeroindices[1],zeroindices[2])
+			if (toHex(overflowbytes.copyOfRange(10, 12)) == "0000" && zeroindices.size >= 4) {
+				val should0bytes = overflowbytes.copyOfRange(zeroindices[2], 12)
+				if (should0bytes.all { byte -> byte.toInt() == 0 }) {
+					nameOverflow = overflowbytes.copyOfRange(0, zeroindices[0])
+					furiganaOverflow = overflowbytes.copyOfRange(zeroindices[0], zeroindices[1])
+					romajiOverflow = overflowbytes.copyOfRange(zeroindices[1], zeroindices[2])
 
-			}else{
+				} else {
+					status = STATUS_OMIT_OVERFLOW
+				}
+			} else {
 				status = STATUS_OMIT_OVERFLOW
 			}
-		}else{
-			status = STATUS_OMIT_OVERFLOW
-		}
 //		if(zeroindices.size>0){
 //			nameOverflow = overflowbytes.copyOfRange(0,zeroindices[0])
 //		}else{
@@ -146,6 +152,21 @@ class FelicaReader {
 //		}else if (zeroindices.size == 2){
 //			romajiOverflow = overflowbytes.copyOfRange(zeroindices[1],16)
 //		}
+		}else if(dataformatversion==1){
+			val ofbyte0 = overflowbytes[0].toInt() and 0xff
+			val nameOFlen = ofbyte0 shr 4
+			val furiganaOFlen = ofbyte0 and 0x0f
+			val ofbyte1 = overflowbytes[1].toInt() and 0xff
+			val romajiOFlen = ofbyte1 shr 4
+			isNameCut = ofbyte1 and 8 > 0
+			isFuriganaCut = ofbyte1 and 4 > 0
+			isRomajiCut = ofbyte1 and 2 > 0
+			isNameJA = ofbyte1 and 1 > 0
+			val ofbytes10 = overflowbytes.copyOfRange(2,12)
+			nameOverflow = ofbytes10.copyOfRange(0,nameOFlen)
+			furiganaOverflow = ofbytes10.copyOfRange(nameOFlen,nameOFlen+furiganaOFlen)
+			romajiOverflow = ofbytes10.copyOfRange(nameOFlen+furiganaOFlen,nameOFlen+furiganaOFlen+romajiOFlen)
+		}
 		//spad2-4
 		val spad2 = readNfcLiteBlock(nfc,idm,2)
 		val name = (bytearrayTrim(spad2)+nameOverflow).toString(Charsets.UTF_16LE)
@@ -159,7 +180,7 @@ class FelicaReader {
 		val ksbalance = LEbytes2int(spad6.copyOfRange(0,4))
 
 		return readResult(status,
-			studentIDdata(toHex(idm),issueFormatVersion,dataformatversion,studentNum,name,furigana,romaji,birthday,enterdate,expdate,issuedate,issueplace,issuecount,ksbalance,ckv))
+			studentIDdata(toHex(idm),issueFormatVersion,dataformatversion,studentNum,name,isNameCut,isNameJA,furigana,isFuriganaCut,romaji,isRomajiCut,birthday,enterdate,expdate,issuedate,issueplace,issuecount,ksbalance,ckv))
 
 
 	}

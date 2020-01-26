@@ -29,4 +29,10 @@
     <string name="data_format_version">Student ID data format version</string>
     <string name="issue_format_version">Student ID FeliCa issue format version</string>
     <string name="not_supported_format_ver">This student ID card is recorded by unsupported format version.</string>
+    <string name="place_OFI">campus office</string>
+    <string name="place_MAL">mail issuance</string>
+    <string name="place_SCC">SUI computer circle</string>
+    <string name="place_C97" translatable="false">C97</string>
+    <string name="place_C98" translatable="false">C98</string>
+    <string name="character_limit_cutted">(partially omitted)</string>
 </resources>

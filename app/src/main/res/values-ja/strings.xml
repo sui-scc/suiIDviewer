@@ -30,4 +30,8 @@
 	<string name="issue_format_version">学生証FeliCa発行形式バージョン</string>
 	<string name="idm">IDm (FeliCaカードのID)</string>
 	<string name="not_supported_format_ver">この学生証はサポートしていないバージョンの形式で記録されています。</string>
+    <string name="place_MAL">郵送発行</string>
+	<string name="place_OFI">学内窓口</string>
+	<string name="place_SCC">コンピューター同好会</string>
+	<string name="character_limit_cutted">(一部省略されています)</string>
 </resources>
